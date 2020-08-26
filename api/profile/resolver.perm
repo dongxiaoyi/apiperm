@@ -1,0 +1,79 @@
+[CreateRole]
+roles = admin
+description = 创建角色
+mode = w
+
+[UpdateRole]
+roles = admin
+description = 更新角色信息
+mode = w
+
+[DeleteRole]
+roles = admin
+description = 删除角色
+mode = w
+
+[CreateUser]
+roles = admin
+description = 创建用户
+mode = w
+
+[UpdateUser]
+roles = admin
+description = 更新用户信息
+mode = w
+
+[DeleteUser]
+roles = admin
+description = 删除用户
+mode = w
+
+[UpdateData]
+roles = admin
+description = 更新资源信息
+mode = w
+
+[CreateUserBelong]
+roles = admin
+description = 创建用户与角色所属关系
+mode = w
+
+[DeleteUserBelong]
+roles = admin
+description = 删除用户与角色所属关系
+mode = w
+
+[CreateRoleOperate]
+roles = admin
+description = 创建用户与角色所属关系
+mode = w
+
+[DeleteRoleOperate]
+roles = admin
+description = 删除用户与角色所属关系
+mode = w
+
+[Roles]
+roles = admin,public
+description = 查询角色
+mode = r
+
+[Users]
+roles = admin,public
+description = 查询用户
+mode = r
+
+[Datas]
+roles = admin
+description = 查询资源
+mode = r
+
+[UserBelong]
+roles = admin,public
+description = 查询用户属于哪些分组
+mode = r
+
+[RoleOperate]
+roles = admin,public
+description = 查询角色拥有操作哪些资源的权限
+mode = r

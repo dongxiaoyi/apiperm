@@ -1,0 +1,69 @@
+[CreateGroup]
+roles = admin
+description = 创建分组
+mode = w
+
+[UpdateGroup]
+roles = admin
+description = 更新分组信息
+mode = w
+
+[DeleteGroup]
+roles = admin
+description = 删除分组
+mode = w
+
+[CreateHost]
+roles = admin
+description = 创建主机
+mode = w
+
+[UpdateHost]
+roles = admin
+description = 更新主机信息
+mode = w
+
+[DeleteHost]
+roles = admin
+description = 删除主机
+mode = w
+
+[CreateRemoteUserPass]
+roles = admin
+description = 创建主机的远程用户及密码
+mode = w
+
+[UpdateRemoteUserPass]
+roles = admin
+description = 更新主机的远程用户及密码
+mode = w
+
+[DeleteRemoteUserPass]
+roles = admin
+description = 删除主机的远程用户
+mode = w
+
+[CreateHostBelong]
+roles = admin
+description = 创建主机与分组关系
+mode = w
+
+[DeleteHostBelong]
+roles = admin
+description = 删除主机与分组关系
+mode = w
+
+[Groups]
+roles = admin,public
+description = 查询分组
+mode = r
+
+[Hosts]
+roles = admin,public
+description = 查询主机
+mode = r
+
+[GroupHas]
+roles = admin, public
+description = 查询分组具有哪些主机
+mode = r

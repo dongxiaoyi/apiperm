@@ -1,0 +1,115 @@
+type Role {
+  "角色名称"
+  name: String!
+  "角色描述"
+  description: String!
+  "创建时间"
+  createTime: String!
+  "更新时间"
+  updateTime: String!
+}
+
+type User {
+  "用户名"
+  name: String!
+  "用户描述"
+  description: String!
+  "用户密码"
+  password: String!
+  "创建时间"
+  createTime: String!
+  "更新时间"
+  updateTime: String!
+}
+
+type Data {
+  "资源名称"
+  name: String!
+  "资源描述"
+  description: String!
+  "资源类型"
+  style: String!
+  "所属服务"
+  service: String!
+  "权限（w、r）"
+  mode: String!
+  "创建时间"
+  createTime: String!
+  "更新时间"
+  updateTime: String!
+}
+
+type Query {
+  "获取角色信息"
+  roles(name: String): [Role]
+  "获取用户信息"
+  users(name: String): [User]
+  "获取资源信息"
+  datas(name: String, mode: String, style: String, service: String): [Data]
+  "查询用户所属于哪些角色"
+  userBelong(userName: String!): [Role]
+  "查询角色拥有哪些资源的操作权限"
+  roleOperate(roleName: String!): [Data]
+}
+
+type Mutation {
+  "创建角色"
+  createRole(input: RoleInput!): Role!
+  "更新角色信息"
+  updateRole(input: RoleInput!): Role!
+  "删除角色"
+  deleteRole(name: String!): Boolean!
+  "创建用户"
+  createUser(input: UserInput!): User!
+  "更新用户信息"
+  updateUser(input: SetUserInput!): User!
+  "删除用户"
+  deleteUser(name: String!): Boolean!
+  "增加用户与角色所属关系"
+  createUserBelong(input: UserBelongInput!): Boolean!
+  "删除用户与角色所属关系"
+  deleteUserBelong(input: UserBelongInput!): Boolean!
+  "增加角色与资源操作关系"
+  createRoleOperate(input: RoleOperateInput!): Boolean!
+  "删除角色与资源操作关系"
+  deleteRoleOperate(input: RoleOperateInput!): Boolean!
+}
+
+input UserBelongInput {
+  "用户名称"
+  userName: String!
+  "角色名称"
+  roleName: String!
+}
+
+input RoleOperateInput {
+  "角色名称"
+  roleName: String!
+  "资源名称"
+  dataName: String!
+}
+
+input RoleInput {
+  "角色名称"
+  name: String!
+  "角色描述"
+  description: String!
+}
+
+input UserInput {
+  "用户名"
+  name: String!
+  "密码"
+  passwd: String!
+  "用户描述"
+  description: String!
+}
+
+input SetUserInput {
+  "用户名"
+  name: String
+  "密码"
+  passwd: String
+  "用户描述"
+  description: String
+}

@@ -1,0 +1,5 @@
+[LogoutView]
+roles = admin,public
+description = 用户登出
+mode = w
+

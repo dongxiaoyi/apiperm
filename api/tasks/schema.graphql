@@ -1,0 +1,104 @@
+type AdHoc {
+  "任务名称"
+  name: String!
+  "任务描述"
+  description: String!
+  "adhoc任务args"
+  args: String!
+  "创建时间"
+  createTime: String!
+  "更新时间"
+  updateTime: String!
+}
+
+type Playbook {
+  "任务名称"
+  name: String!
+  "任务描述"
+  description: String!
+  ""
+}
+
+type Host {
+  "主机名"
+  name: String!
+  "主机描述"
+  description: String!
+  "远程操作用户"
+  remote_user: String!
+  "远程操作用户密码"
+  remote_pass: String!
+  "远程主机的python解释器（默认为/usr/bin/python）"
+  remote_python_interpreter: String!
+  "创建时间"
+  createTime: String!
+  "更新时间"
+  updateTime: String!
+}
+
+type Query {
+  "获取主机分组信息"
+  groups(name: String): [Group]
+  "获取主机信息"
+  hosts(name: String): [Host]
+  "查询分组有主机"
+  groupHas(groupName: String!): [Host]
+}
+
+type Mutation {
+  "创建分组"
+  createGroup(input: GroupInput!): Group!
+  "更新分组信息"
+  updateGroup(input: GroupInput!): Group!
+  "删除分组"
+  deleteGroup(name: String!): Boolean!
+  "创建主机"
+  createHost(input: HostInput!): Host!
+  "更新主机信息"
+  updateHost(input: SetHostInput!): Host!
+  "删除主机"
+  deleteHost(name: String!): Boolean!
+  "增加主机与分组所属关系"
+  createHostBelong(input: HostBelongInput!): Boolean!
+  "删除主机与分组所属关系"
+  deleteHostBelong(input: HostBelongInput!): Boolean!
+}
+
+input HostBelongInput {
+  "主机名称"
+  hostName: String!
+  "角色名称"
+  groupName: String!
+}
+
+input GroupInput {
+  "分组名称"
+  name: String!
+  "分组描述"
+  description: String!
+}
+
+input HostInput {
+  "主机名称"
+  name: String!
+  "主机用户"
+  remote_user: String!
+  "主机用户密码"
+  remote_pass: String!
+  "主机描述"
+  description: String!
+  remote_python_interpreter: String!
+}
+
+input SetHostInput {
+  "主机名称"
+  name: String
+  "主机用户"
+  remote_user: String
+  "主机用户密码"
+  remote_pass: String
+  "主机描述"
+  description: String
+  "python解释器"
+  remote_python_interpreter: String
+}
